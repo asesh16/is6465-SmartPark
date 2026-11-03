@@ -1,4 +1,7 @@
-<?php require __DIR__ . '/lot-data.php'; ?>
+<?php
+// Load the sample records displayed in the table.
+require __DIR__ . '/lot-data.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +23,7 @@
     <main>
         <h1>Parking Lots</h1>
 
+        <!-- Search field and link to the form for adding a lot. -->
         <form action="lot-list.php" method="get">
             <label for="lot-search">Find a lot</label>
             <input id="lot-search" name="search" type="search" placeholder="Find a lot">
@@ -27,6 +31,7 @@
             <a href="lot-add.php">Add a lot</a>
         </form>
 
+        <!-- Show each lot and pass its ID to the view and edit pages. -->
         <table>
             <thead>
                 <tr>

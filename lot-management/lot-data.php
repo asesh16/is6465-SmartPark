@@ -1,4 +1,5 @@
 <?php
+// Sample lot records are shared by the list, edit, and details pages.
 $lots = [
     ['id' => 1, 'location' => 'Downtown Garage', 'available' => 42, 'total' => 120, 'rate' => '4.00'],
     ['id' => 2, 'location' => 'Airport Lot B', 'available' => 8, 'total' => 300, 'rate' => '2.00'],
@@ -6,12 +7,13 @@ $lots = [
     ['id' => 4, 'location' => 'State Street Lot 2', 'available' => 33, 'total' => 60, 'rate' => '1.50'],
 ];
 
+// Read the requested lot ID and find the matching record for detail pages.
 $lotId = filter_var($_GET['id'] ?? null, FILTER_VALIDATE_INT);
 $lot = null;
 
 foreach ($lots as $candidate) {
     if ($candidate['id'] === $lotId) {
         $lot = $candidate;
-        break;
+        break; // Stop once the requested lot has been found.
     }
 }

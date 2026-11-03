@@ -1,6 +1,8 @@
 <?php
+// Load the lot selected by the ID in the page URL.
 require __DIR__ . '/lot-data.php';
 
+// Return a not-found response when the URL has no matching lot ID.
 if ($lot === null) {
     http_response_code(404);
 }
@@ -27,6 +29,7 @@ if ($lot === null) {
         <?php if ($lot === null): ?>
         <h1>Parking lot not found</h1>
         <?php else: ?>
+        <!-- Display the selected lot's information and available actions. -->
         <h1><?= htmlspecialchars($lot['location'], ENT_QUOTES, 'UTF-8') ?></h1>
         <dl>
             <dt>Location</dt>

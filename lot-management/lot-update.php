@@ -1,6 +1,8 @@
 <?php
+// Load the lot selected by the ID in the page URL.
 require __DIR__ . '/lot-data.php';
 
+// Return a not-found response when the URL has no matching lot ID.
 if ($lot === null) {
     http_response_code(404);
 }
@@ -28,6 +30,7 @@ if ($lot === null) {
             <h1>Parking lot not found</h1>
             <p><a href="lot-list.php">Back to parking lots</a></p>
         <?php else: ?>
+        <!-- Pre-fill the form with this lot's current values. -->
         <h1>Editing <?= htmlspecialchars($lot['location'], ENT_QUOTES, 'UTF-8') ?></h1>
         <form action="lot-list.php" method="post">
             <input type="hidden" name="lot_id" value="<?= (int) $lot['id'] ?>">
