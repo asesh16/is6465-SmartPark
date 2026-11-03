@@ -1,7 +1,3 @@
-<?php
-// Load the sample records displayed in the table.
-require __DIR__ . '/lot-data.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,17 +38,43 @@ require __DIR__ . '/lot-data.php';
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($lots as $lot): ?>
-                    <tr>
-                        <td><?= htmlspecialchars($lot['location'], ENT_QUOTES, 'UTF-8') ?></td>
-                        <td><?= (int) $lot['available'] ?>/<?= (int) $lot['total'] ?></td>
-                        <td>$<?= htmlspecialchars($lot['rate'], ENT_QUOTES, 'UTF-8') ?></td>
-                        <td>
-                            <a href="lot-details.php?id=<?= (int) $lot['id'] ?>">View</a>
-                            <a href="lot-update.php?id=<?= (int) $lot['id'] ?>">Edit</a>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
+                <!-- Sample records make the list usable without a database. -->
+                <tr>
+                    <td>Downtown Garage</td>
+                    <td>42/120</td>
+                    <td>$4.00</td>
+                    <td>
+                        <a href="lot-details.php#lot-1">View</a>
+                        <a href="lot-update.php#lot-1">Edit</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Airport Lot B</td>
+                    <td>8/300</td>
+                    <td>$2.00</td>
+                    <td>
+                        <a href="lot-details.php#lot-2">View</a>
+                        <a href="lot-update.php#lot-2">Edit</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Campus Lot 4</td>
+                    <td>0/65</td>
+                    <td>$5.50</td>
+                    <td>
+                        <a href="lot-details.php#lot-3">View</a>
+                        <a href="lot-update.php#lot-3">Edit</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>State Street Lot 2</td>
+                    <td>33/60</td>
+                    <td>$1.50</td>
+                    <td>
+                        <a href="lot-details.php#lot-4">View</a>
+                        <a href="lot-update.php#lot-4">Edit</a>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </main>
