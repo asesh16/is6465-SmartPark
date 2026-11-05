@@ -27,7 +27,7 @@
             <a href="lot-add.php">Add a lot</a>
         </form>
 
-        <!-- Show each lot and pass its ID to the view and edit pages. -->
+        <!-- Show each lot with actions for editing or deleting that record. -->
         <table>
             <thead>
                 <tr>
@@ -44,8 +44,8 @@
                     <td>42/120</td>
                     <td>$4.00</td>
                     <td>
-                        <a href="lot-details.php#lot-1">View</a>
                         <a href="lot-update.php#lot-1">Edit</a>
+                        <button type="button">Delete</button>
                     </td>
                 </tr>
                 <tr>
@@ -53,8 +53,8 @@
                     <td>8/300</td>
                     <td>$2.00</td>
                     <td>
-                        <a href="lot-details.php#lot-2">View</a>
                         <a href="lot-update.php#lot-2">Edit</a>
+                        <button type="button">Delete</button>
                     </td>
                 </tr>
                 <tr>
@@ -62,8 +62,8 @@
                     <td>0/65</td>
                     <td>$5.50</td>
                     <td>
-                        <a href="lot-details.php#lot-3">View</a>
                         <a href="lot-update.php#lot-3">Edit</a>
+                        <button type="button">Delete</button>
                     </td>
                 </tr>
                 <tr>
@@ -71,8 +71,8 @@
                     <td>33/60</td>
                     <td>$1.50</td>
                     <td>
-                        <a href="lot-details.php#lot-4">View</a>
                         <a href="lot-update.php#lot-4">Edit</a>
+                        <button type="button">Delete</button>
                     </td>
                 </tr>
             </tbody>

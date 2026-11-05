@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Parking Lot | SmartPark Solutions</title>
+    <style>
+        /* Show only the lot selected by the link from the lot list. */
+        main section {
+            display: none;
+        }
+
+        main section:target {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,7 +28,8 @@
 
     <main>
         <h1>Edit a Parking Lot</h1>
-        <!-- Each anchor target gives a sample lot its own pre-filled edit form. -->
+        <p>Select a lot's Edit action from the parking lot list to open its form.</p>
+        <!-- Each anchor target displays only its own pre-filled edit form. -->
         <section id="lot-1">
             <h2>Editing Downtown Garage</h2>
             <form action="lot-list.php" method="post">
