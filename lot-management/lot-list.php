@@ -28,7 +28,8 @@
                 Manage Lots
             </a>
 
-            <a href="../home.php">Find Parking</a>
+            <a href="../reservation-management/reservations.php">View Reservations</a>
+
 
             <a href="../login.php">Login</a>
 
@@ -85,7 +86,7 @@
                     <td>
                         <a href="lot-details.php#lot-1" class="btn btn-primary btn-sm">View</a>
                         <a href="lot-update.php#lot-1" class="btn btn-warning btn-sm">Edit</a>
-                        <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                        <a href="lot-delete.php?lot_id=1" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
                 <tr>
@@ -95,7 +96,7 @@
                     <td>
                         <a href="lot-details.php#lot-2" class="btn btn-primary btn-sm">View</a>
                         <a href="lot-update.php#lot-2" class="btn btn-warning btn-sm">Edit</a>
-                        <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                        <a href="lot-delete.php?lot_id=2" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
                 <tr>
@@ -105,7 +106,7 @@
                     <td>
                         <a href="lot-details.php#lot-3" class="btn btn-primary btn-sm">View</a>
                         <a href="lot-update.php#lot-3" class="btn btn-warning btn-sm">Edit</a>
-                        <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                        <a href="lot-delete.php?lot_id=3" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
                 <tr>
@@ -115,7 +116,7 @@
                     <td>
                         <a href="lot-details.php#lot-4" class="btn btn-primary btn-sm">View</a>
                         <a href="lot-update.php#lot-4" class="btn btn-warning btn-sm">Edit</a>
-                        <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                        <a href="lot-delete.php?lot_id=4" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
             </tbody>

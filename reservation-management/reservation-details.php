@@ -45,10 +45,10 @@ foreach ($reservations as $reservation) {
 
             <a href="../home.php">Home</a>
 
-            <a href="../home.php">Find Parking</a>
+            <a href="create-reservation.php">Make a Reservation</a>
 
             <a href="reservations.php" class="active" aria-current="page">
-                My Reservations
+                View Reservations
             </a>
 
             <a href="../login.php">Login</a>

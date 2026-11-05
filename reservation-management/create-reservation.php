@@ -32,10 +32,10 @@ require_once __DIR__ . '/reservation-data.php';
 
             <a href="../home.php">Home</a>
 
-            <a href="../home.php">Find Parking</a>
+            <a href="create-reservation.php" class="active" aria-current="page">Make a Reservation</a>
 
-            <a href="reservations.php" class="active">
-                My Reservations
+            <a href="reservations.php">
+                View Reservations
             </a>
 
             <a href="../login.php">Login</a>

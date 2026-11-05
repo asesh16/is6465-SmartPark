@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parking Lot Details | SmartPark Solutions</title>  
+    <style>
+        main section {
+            display: none;
+        }
+
+        main section:target {
+            display: block;
+        }
+    </style>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -28,7 +37,8 @@
                 Manage Lots
             </a>
 
-            <a href="../home.php">Find Parking</a>
+            <a href="../reservation-management/reservations.php">View Reservations</a>
+
 
             <a href="../login.php">Login</a>
 
@@ -54,9 +64,9 @@
             <a href="lot-update.php#lot-1" class="btn btn-warning me-2">
                 Edit Parking Lot
             </a>
-            <button type="button" class="btn btn-danger">
+            <a href="lot-delete.php?lot_id=1" class="btn btn-danger">
                 Delete Parking Lot
-            </button>
+            </a>
             </p>
             </div>
         </div>
@@ -76,9 +86,9 @@
             <a href="lot-update.php#lot-2" class="btn btn-warning me-2">
                 Edit Parking Lot
             </a>
-            <button type="button" class="btn btn-danger">
+            <a href="lot-delete.php?lot_id=2" class="btn btn-danger">
                 Delete Parking Lot
-            </button>
+            </a>
             </p>
             </div>
         </div>
@@ -98,9 +108,9 @@
             <a href="lot-update.php#lot-3" class="btn btn-warning me-2">
                 Edit Parking Lot
             </a>
-            <button type="button" class="btn btn-danger">
+            <a href="lot-delete.php?lot_id=3" class="btn btn-danger">
                 Delete Parking Lot
-            </button>
+            </a>
             </p>
             </div>
         </div>
@@ -120,9 +130,9 @@
             <a href="lot-update.php#lot-4" class="btn btn-warning me-2">
                 Edit Parking Lot
             </a>
-            <button type="button" class="btn btn-danger">
+            <a href="lot-delete.php?lot_id=4" class="btn btn-danger">
                 Delete Parking Lot
-            </button>
+            </a>
             </p>
             </div>
         </div>

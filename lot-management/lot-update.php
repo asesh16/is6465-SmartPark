@@ -40,7 +40,7 @@
                     Manage Lots
                 </a>
 
-                <a href="../home.php">Find Parking</a>
+                <a href="../reservation-management/reservations.php">View Reservations</a>
 
                 <a href="../login.php">Login</a>
             </nav>
@@ -52,7 +52,7 @@
 
         <h1 class="mb-2">Edit a Parking Lot</h1>
         <p class="text-muted mb-4">
-            Update parking lot information below. Available spaces are automatically managed by the reservation system.
+            Update parking lot information below. Available spaces are automatically managed by the reservation system. Changes are not saved yet.
         </p>
 
         <!-- Downtown Garage -->
@@ -63,7 +63,7 @@
 
                     <h2 class="h4 mb-4">Editing Downtown Garage</h2>
 
-                    <form action="lot-list.php" method="post">
+                    <form onsubmit="return false;">
 
                         <input type="hidden" name="lot_id" value="1">
 
@@ -135,7 +135,7 @@
                         </div>
 
                         <div class="d-flex flex-wrap gap-2">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="button" class="btn btn-primary" disabled>
                                 Save Parking Lot
                             </button>
 
@@ -159,7 +159,7 @@
 
                     <h2 class="h4 mb-4">Editing Airport Lot B</h2>
 
-                    <form action="lot-list.php" method="post">
+                    <form onsubmit="return false;">
 
                         <input type="hidden" name="lot_id" value="2">
 
@@ -231,7 +231,7 @@
                         </div>
 
                         <div class="d-flex flex-wrap gap-2">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="button" class="btn btn-primary" disabled>
                                 Save Parking Lot
                             </button>
 
@@ -255,7 +255,7 @@
 
                     <h2 class="h4 mb-4">Editing Campus Lot 4</h2>
 
-                    <form action="lot-list.php" method="post">
+                    <form onsubmit="return false;">
 
                         <input type="hidden" name="lot_id" value="3">
 
@@ -327,7 +327,7 @@
                         </div>
 
                         <div class="d-flex flex-wrap gap-2">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="button" class="btn btn-primary" disabled>
                                 Save Parking Lot
                             </button>
 
@@ -351,7 +351,7 @@
 
                     <h2 class="h4 mb-4">Editing State Street Lot 2</h2>
 
-                    <form action="lot-list.php" method="post">
+                    <form onsubmit="return false;">
 
                         <input type="hidden" name="lot_id" value="4">
 
@@ -423,7 +423,7 @@
                         </div>
 
                         <div class="d-flex flex-wrap gap-2">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="button" class="btn btn-primary" disabled>
                                 Save Parking Lot
                             </button>
 

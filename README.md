@@ -1,4 +1,11 @@
 # is6465-SmartPark
+Midterm submission guide
+- CRUD php files are organized under lot-management and reservation-management folders 
+- design files are located under assignment-files/design-documents (wireframes, use case documents, and activity diagrams under their respective folders) 
+- reflection.md is located under assignment-files and contains the required group reflection 
+- SmartPark Project Proposal.pdf is just our proposal from the first assignment for reference (located under assignment-files)
+
+
 
 Midterm Project Requirements and Rubric 
 

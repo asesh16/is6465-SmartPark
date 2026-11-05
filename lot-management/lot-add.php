@@ -27,7 +27,8 @@
                 Manage Lots
             </a>
 
-            <a href="../home.php">Find Parking</a>
+            <a href="../reservation-management/reservations.php">View Reservations</a>
+
 
             <a href="../login.php">Login</a>
 
@@ -42,7 +43,7 @@
         <!-- Collect the details for a new lot. -->        
         <div class="card mt-4" style="max-width: 720px;">
             <div class="card-body">
-        <form action="lot-list.php" method="post">
+        <form onsubmit="return false;">
             <p>
                 <label for="location">Location</label><br>
                 <input id="location" name="location" type="text" required>
@@ -61,10 +62,10 @@
                 <label for="hourly-rate">Hourly rate</label><br>
                 $<input id="hourly-rate" name="hourly_rate" type="number" min="0" step="0.01" required>
             </p>
-            <!-- Return to the lot list or submit the new lot details. -->
+            <!-- Return to the lot list or save the new lot when persistence is available. -->
             <p>
                 <a href="lot-list.php" class="btn btn-secondary">Cancel</a>
-                <button type="submit" class="btn btn-primary">Save parking lot</button>
+                <button type="button" class="btn btn-primary" disabled>Save parking lot</button>
             </p>
         </form>
         </div>
