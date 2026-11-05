@@ -4,21 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add a Parking Lot | SmartPark Solutions</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Shared SmartPark CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <header>
-        <a href="../home.php">SmartPark Solutions</a>
-        <nav aria-label="Main navigation">
-            <a href="../home.php">Home</a>
-            <a href="lot-list.php" aria-current="page">Manage Lots</a>
-            <a href="../home.php">Find Parking</a>
-            <a href="../login.php">Login</a>
-        </nav>
-    </header>
+<!-- SmartPark Administrative Navigation -->
+<header class="smartpark-header">
+    <div class="container smartpark-navbar">
 
-    <main>
+        <a href="../home.php" class="smartpark-brand">
+            SmartPark Solutions
+        </a>
+
+        <nav class="smartpark-nav-links" aria-label="Main navigation">
+
+            <a href="../home.php">Home</a>
+
+            <a href="lot-list.php" class="active" aria-current="page">
+                Manage Lots
+            </a>
+
+            <a href="../home.php">Find Parking</a>
+
+            <a href="../login.php">Login</a>
+
+        </nav>
+
+    </div>
+</header>
+
+
+    <main class="container mt-5 mb-5">
         <h1>Add a Parking Lot</h1>
-        <!-- Collect the details for a new lot. -->
+        <!-- Collect the details for a new lot. -->        
+        <div class="card mt-4" style="max-width: 720px;">
+            <div class="card-body">
         <form action="lot-list.php" method="post">
             <p>
                 <label for="location">Location</label><br>
@@ -40,10 +63,12 @@
             </p>
             <!-- Return to the lot list or submit the new lot details. -->
             <p>
-                <a href="lot-list.php">Cancel</a>
-                <button type="submit">Save parking lot</button>
+                <a href="lot-list.php" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-primary">Save parking lot</button>
             </p>
         </form>
+        </div>
+    </div>
     </main>
 </body>
 </html>

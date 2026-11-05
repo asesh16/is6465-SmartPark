@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,121 +15,431 @@
             display: block;
         }
     </style>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Shared SmartPark CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
+
 <body>
-    <header>
-        <a href="../home.php">SmartPark Solutions</a>
-        <nav aria-label="Main navigation">
-            <a href="../home.php">Home</a>
-            <a href="lot-list.php" aria-current="page">Manage Lots</a>
-            <a href="../home.php">Find Parking</a>
-            <a href="../login.php">Login</a>
-        </nav>
+
+    <!-- SmartPark Administrative Navigation -->
+    <header class="smartpark-header">
+        <div class="container smartpark-navbar">
+
+            <a href="../home.php" class="smartpark-brand">
+                SmartPark Solutions
+            </a>
+
+            <nav class="smartpark-nav-links" aria-label="Main navigation">
+                <a href="../home.php">Home</a>
+
+                <a href="lot-list.php" class="active" aria-current="page">
+                    Manage Lots
+                </a>
+
+                <a href="../home.php">Find Parking</a>
+
+                <a href="../login.php">Login</a>
+            </nav>
+
+        </div>
     </header>
 
-    <main>
-        <h1>Edit a Parking Lot</h1>
-        <p>Select a lot's Edit action from the parking lot list to open its form.</p>
-        <!-- Each anchor target displays only its own pre-filled edit form. -->
-        <section id="lot-1">
-            <h2>Editing Downtown Garage</h2>
-            <form action="lot-list.php" method="post">
-                <input type="hidden" name="lot_id" value="1">
-                <p>
-                    <label for="location-1">Location</label><br>
-                    <input id="location-1" name="location" type="text" value="Downtown Garage" required>
-                </p>
-                <p>
-                    <label for="total-spots-1">Total Spots</label><br>
-                    <input id="total-spots-1" name="total_spots" type="number" min="1" step="1" value="120" required>
-                </p>
-                <p>
-                    <label for="available-spots-1">Available spots</label>
-                    <small id="availability-note-1">This field updates as reservations are made.</small><br>
-                    <input id="available-spots-1" name="available_spots" type="number" value="42" readonly aria-describedby="availability-note-1">
-                </p>
-                <p>
-                    <label for="hourly-rate-1">Hourly rate</label><br>
-                    $<input id="hourly-rate-1" name="hourly_rate" type="number" min="0" step="0.01" value="4.00" required>
-                </p>
-                <p><a href="lot-list.php">Cancel</a> <button type="submit">Save parking lot</button></p>
-            </form>
+    <main class="container mt-5 mb-5">
+
+        <h1 class="mb-2">Edit a Parking Lot</h1>
+        <p class="text-muted mb-4">
+            Update parking lot information below. Available spaces are automatically managed by the reservation system.
+        </p>
+
+        <!-- Downtown Garage -->
+        <section id="lot-1" class="mb-4">
+
+            <div class="card" style="max-width: 720px;">
+                <div class="card-body p-4">
+
+                    <h2 class="h4 mb-4">Editing Downtown Garage</h2>
+
+                    <form action="lot-list.php" method="post">
+
+                        <input type="hidden" name="lot_id" value="1">
+
+                        <div class="mb-3">
+                            <label for="location-1" class="form-label">
+                                Location
+                            </label>
+                            <input
+                                id="location-1"
+                                name="location"
+                                type="text"
+                                class="form-control"
+                                value="Downtown Garage"
+                                required
+                            >
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="total-spots-1" class="form-label">
+                                Total Spots
+                            </label>
+                            <input
+                                id="total-spots-1"
+                                name="total_spots"
+                                type="number"
+                                class="form-control"
+                                min="1"
+                                step="1"
+                                value="120"
+                                required
+                            >
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="available-spots-1" class="form-label">
+                                Available Spots
+                            </label>
+                            <input
+                                id="available-spots-1"
+                                name="available_spots"
+                                type="number"
+                                class="form-control"
+                                value="42"
+                                readonly
+                                aria-describedby="availability-note-1"
+                            >
+                            <div id="availability-note-1" class="form-text">
+                                This field updates as reservations are made.
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="hourly-rate-1" class="form-label">
+                                Hourly Rate ($)
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input
+                                    id="hourly-rate-1"
+                                    name="hourly_rate"
+                                    type="number"
+                                    class="form-control"
+                                    min="0"
+                                    step="0.01"
+                                    value="4.00"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                Save Parking Lot
+                            </button>
+
+                            <a href="lot-list.php" class="btn btn-secondary">
+                                Cancel
+                            </a>
+                        </div>
+
+                    </form>
+
+                </div>
+                </div>
+
         </section>
 
-        <section id="lot-2">
-            <h2>Editing Airport Lot B</h2>
-            <form action="lot-list.php" method="post">
-                <input type="hidden" name="lot_id" value="2">
-                <p>
-                    <label for="location-2">Location</label><br>
-                    <input id="location-2" name="location" type="text" value="Airport Lot B" required>
-                </p>
-                <p>
-                    <label for="total-spots-2">Total Spots</label><br>
-                    <input id="total-spots-2" name="total_spots" type="number" min="1" step="1" value="300" required>
-                </p>
-                <p>
-                    <label for="available-spots-2">Available spots</label>
-                    <small id="availability-note-2">This field updates as reservations are made.</small><br>
-                    <input id="available-spots-2" name="available_spots" type="number" value="8" readonly aria-describedby="availability-note-2">
-                </p>
-                <p>
-                    <label for="hourly-rate-2">Hourly rate</label><br>
-                    $<input id="hourly-rate-2" name="hourly_rate" type="number" min="0" step="0.01" value="2.00" required>
-                </p>
-                <p><a href="lot-list.php">Cancel</a> <button type="submit">Save parking lot</button></p>
-            </form>
+        <!-- Airport Lot B -->
+        <section id="lot-2" class="mb-4">
+
+            <div class="card" style="max-width: 720px;">
+                <div class="card-body p-4">
+
+                    <h2 class="h4 mb-4">Editing Airport Lot B</h2>
+
+                    <form action="lot-list.php" method="post">
+
+                        <input type="hidden" name="lot_id" value="2">
+
+                        <div class="mb-3">
+                            <label for="location-2" class="form-label">
+                                Location
+                            </label>
+                            <input
+                                id="location-2"
+                                name="location"
+                                type="text"
+                                class="form-control"
+                                value="Airport Lot B"
+                                required
+                            >
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="total-spots-2" class="form-label">
+                                Total Spots
+                            </label>
+                            <input
+                                id="total-spots-2"
+                                name="total_spots"
+                                type="number"
+                                class="form-control"
+                                min="1"
+                                step="1"
+                                value="300"
+                                required
+                            >
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="available-spots-2" class="form-label">
+                                Available Spots
+                            </label>
+                            <input
+                                id="available-spots-2"
+                                name="available_spots"
+                                type="number"
+                                class="form-control"
+                                value="8"
+                                readonly
+                                aria-describedby="availability-note-2"
+                            >
+                            <div id="availability-note-2" class="form-text">
+                                This field updates as reservations are made.
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="hourly-rate-2" class="form-label">
+                                Hourly Rate ($)
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input
+                                    id="hourly-rate-2"
+                                    name="hourly_rate"
+                                    type="number"
+                                    class="form-control"
+                                    min="0"
+                                    step="0.01"
+                                    value="2.00"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                Save Parking Lot
+                            </button>
+
+                            <a href="lot-list.php" class="btn btn-secondary">
+                                Cancel
+                            </a>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
         </section>
 
-        <section id="lot-3">
-            <h2>Editing Campus Lot 4</h2>
-            <form action="lot-list.php" method="post">
-                <input type="hidden" name="lot_id" value="3">
-                <p>
-                    <label for="location-3">Location</label><br>
-                    <input id="location-3" name="location" type="text" value="Campus Lot 4" required>
-                </p>
-                <p>
-                    <label for="total-spots-3">Total Spots</label><br>
-                    <input id="total-spots-3" name="total_spots" type="number" min="1" step="1" value="65" required>
-                </p>
-                <p>
-                    <label for="available-spots-3">Available spots</label>
-                    <small id="availability-note-3">This field updates as reservations are made.</small><br>
-                    <input id="available-spots-3" name="available_spots" type="number" value="0" readonly aria-describedby="availability-note-3">
-                </p>
-                <p>
-                    <label for="hourly-rate-3">Hourly rate</label><br>
-                    $<input id="hourly-rate-3" name="hourly_rate" type="number" min="0" step="0.01" value="5.50" required>
-                </p>
-                <p><a href="lot-list.php">Cancel</a> <button type="submit">Save parking lot</button></p>
-            </form>
+        <!-- Campus Lot 4 -->
+        <section id="lot-3" class="mb-4">
+
+            <div class="card" style="max-width: 720px;">
+                <div class="card-body p-4">
+
+                    <h2 class="h4 mb-4">Editing Campus Lot 4</h2>
+
+                    <form action="lot-list.php" method="post">
+
+                        <input type="hidden" name="lot_id" value="3">
+
+                        <div class="mb-3">
+                            <label for="location-3" class="form-label">
+                                Location
+                            </label>
+                            <input
+                                id="location-3"
+                                name="location"
+                                type="text"
+                                class="form-control"
+                                value="Campus Lot 4"
+                                required
+                            >
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="total-spots-3" class="form-label">
+                                Total Spots
+                            </label>
+                            <input
+                                id="total-spots-3"
+                                name="total_spots"
+                                type="number"
+                                class="form-control"
+                                min="1"
+                                step="1"
+                                value="65"
+                                required
+                            >
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="available-spots-3" class="form-label">
+                                Available Spots
+                            </label>
+                            <input
+                                id="available-spots-3"
+                                name="available_spots"
+                                type="number"
+                                class="form-control"
+                                value="0"
+                                readonly
+                                aria-describedby="availability-note-3"
+                            >
+                            <div id="availability-note-3" class="form-text">
+                                This field updates as reservations are made.
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="hourly-rate-3" class="form-label">
+                                Hourly Rate ($)
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input
+                                    id="hourly-rate-3"
+                                    name="hourly_rate"
+                                    type="number"
+                                    class="form-control"
+                                    min="0"
+                                    step="0.01"
+                                    value="5.50"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                Save Parking Lot
+                            </button>
+
+                            <a href="lot-list.php" class="btn btn-secondary">
+                                Cancel
+                            </a>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
         </section>
 
-        <section id="lot-4">
-            <h2>Editing State Street Lot 2</h2>
-            <form action="lot-list.php" method="post">
-                <input type="hidden" name="lot_id" value="4">
-                <p>
-                    <label for="location-4">Location</label><br>
-                    <input id="location-4" name="location" type="text" value="State Street Lot 2" required>
-                </p>
-                <p>
-                    <label for="total-spots-4">Total Spots</label><br>
-                    <input id="total-spots-4" name="total_spots" type="number" min="1" step="1" value="60" required>
-                </p>
-                <p>
-                    <label for="available-spots-4">Available spots</label>
-                    <small id="availability-note-4">This field updates as reservations are made.</small><br>
-                    <input id="available-spots-4" name="available_spots" type="number" value="33" readonly aria-describedby="availability-note-4">
-                </p>
-                <p>
-                    <label for="hourly-rate-4">Hourly rate</label><br>
-                    $<input id="hourly-rate-4" name="hourly_rate" type="number" min="0" step="0.01" value="1.50" required>
-                </p>
-                <p><a href="lot-list.php">Cancel</a> <button type="submit">Save parking lot</button></p>
-            </form>
+        <!-- State Street Lot 2 -->
+        <section id="lot-4" class="mb-4">
+
+            <div class="card" style="max-width: 720px;">
+                <div class="card-body p-4">
+
+                    <h2 class="h4 mb-4">Editing State Street Lot 2</h2>
+
+                    <form action="lot-list.php" method="post">
+
+                        <input type="hidden" name="lot_id" value="4">
+
+                        <div class="mb-3">
+                            <label for="location-4" class="form-label">
+                                Location
+                            </label>
+                            <input
+                                id="location-4"
+                                name="location"
+                                type="text"
+                                class="form-control"
+                                value="State Street Lot 2"
+                                required
+                            >
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="total-spots-4" class="form-label">
+                                Total Spots
+                            </label>
+                            <input
+                                id="total-spots-4"
+                                name="total_spots"
+                                type="number"
+                                class="form-control"
+                                min="1"
+                                step="1"
+                                value="60"
+                                required
+                            >
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="available-spots-4" class="form-label">
+                                Available Spots
+                            </label>
+                            <input
+                                id="available-spots-4"
+                                name="available_spots"
+                                type="number"
+                                class="form-control"
+                                value="33"
+                                readonly
+                                aria-describedby="availability-note-4"
+                            >
+                            <div id="availability-note-4" class="form-text">
+                                This field updates as reservations are made.
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="hourly-rate-4" class="form-label">
+                                Hourly Rate ($)
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input
+                                    id="hourly-rate-4"
+                                    name="hourly_rate"
+                                    type="number"
+                                    class="form-control"
+                                    min="0"
+                                    step="0.01"
+                                    value="1.50"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                Save Parking Lot
+                            </button>
+
+                            <a href="lot-list.php" class="btn btn-secondary">
+                                Cancel
+                            </a>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
         </section>
+
     </main>
+
 </body>
 </html>
