@@ -3,7 +3,15 @@
 // Entry point for Drivers and Lot Managers
 
 require_once __DIR__ . '/includes/session.php';
-require_once __DIR__ . '/lot-management/lot-data.php';
+
+// Temporary sample data until database integration.
+$parkingLots = [
+    ['id' => 1, 'location' => 'Downtown Garage', 'available_spots' => 42, 'total_spots' => 120, 'hourly_rate' => 4.00],
+    ['id' => 2, 'location' => 'Airport Lot B', 'available_spots' => 8, 'total_spots' => 300, 'hourly_rate' => 2.00],
+    ['id' => 3, 'location' => 'Campus Lot 4', 'available_spots' => 0, 'total_spots' => 65, 'hourly_rate' => 5.50],
+    ['id' => 4, 'location' => 'State Street Lot 2', 'available_spots' => 33, 'total_spots' => 60, 'hourly_rate' => 1.50]
+];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +78,7 @@ require __DIR__ . '/includes/header.php';
                             <?php foreach ($parkingLots as $lot): ?>
                                 <li class="list-group-item sp-lot-row">
                                     <div>
-                                        <a href="lot-management/lot-details.php?lot_id=<?= $lot['id'] ?>" class="sp-lot-name">
+                                        <a href="lot-management/lot-details.php#lot-<?= $lot['id'] ?>" class="sp-lot-name">
                                             <?= htmlspecialchars($lot['location']) ?>
                                         </a>
                                         <small class="d-block">
@@ -79,13 +87,13 @@ require __DIR__ . '/includes/header.php';
                                     </div>
 
                                     <?php if ($lot['available_spots'] === 0): ?>
-                                        <span class="badge sp-badge-full">Full</span>
+                                        <span class="badge bg-danger">Full</span>
                                     <?php elseif ($lot['available_spots'] / $lot['total_spots'] < 0.1): ?>
-                                        <span class="badge sp-badge-low">
+                                        <span class="badge bg-warning text-dark">
                                             <?= $lot['available_spots'] ?> of <?= $lot['total_spots'] ?> open
                                         </span>
                                     <?php else: ?>
-                                        <span class="badge sp-badge-open">
+                                        <span class="badge bg-success">
                                             <?= $lot['available_spots'] ?> of <?= $lot['total_spots'] ?> open
                                         </span>
                                     <?php endif; ?>
