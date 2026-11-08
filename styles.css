@@ -1,0 +1,794 @@
+/* =========================================
+   SmartPark Shared Design System
+   IS 6465 Group Project
+   ========================================= */
+
+/* Global Colors */
+:root {
+    --sp-primary: #174a67;
+    --sp-primary-dark: #10374d;
+    --sp-accent: #17a2a4;
+    --sp-background: #f4f7fa;
+    --sp-text: #243746;
+    --sp-border: #dce4eb;
+}
+
+/* Overall Page */
+body {
+    background-color: var(--sp-background);
+    color: var(--sp-text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Page Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--sp-primary-dark);
+    font-weight: 600;
+}
+
+/* Cards */
+.card {
+    border: 1px solid var(--sp-border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #eaf1f5;
+    color: var(--sp-primary-dark);
+    font-weight: 600;
+    padding: 15px 20px;
+}
+
+.card-body {
+    padding: 24px;
+}
+
+/* Primary Buttons */
+.btn-primary {
+    background-color: var(--sp-primary);
+    border-color: var(--sp-primary);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--sp-primary-dark);
+    border-color: var(--sp-primary-dark);
+}
+
+/* Secondary Buttons */
+.btn-secondary {
+    background-color: #647888;
+    border-color: #647888;
+}
+
+/* Forms */
+.form-control,
+.form-select {
+    border-color: var(--sp-border);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--sp-accent);
+    box-shadow: 0 0 0 0.2rem rgba(23, 162, 164, 0.15);
+}
+
+/* Tables */
+.table {
+    background-color: white;
+}
+
+.table thead th {
+    background-color: #eaf1f5;
+    color: var(--sp-primary-dark);
+    font-weight: 600;
+}
+
+/* Links */
+a {
+    color: var(--sp-primary);
+}
+
+a:hover {
+    color: var(--sp-accent);
+}
+
+/* Responsive Spacing */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .card-body {
+        padding: 18px;
+    }
+}
+
+/* =========================================
+   SmartPark Navigation Header
+   ========================================= */
+
+.smartpark-header {
+    background: linear-gradient(135deg, #10374d, #174a67);
+    box-shadow: 0 3px 12px rgba(16, 55, 77, 0.15);
+}
+
+.smartpark-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.smartpark-brand {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.smartpark-brand:hover {
+    color: #ffffff;
+}
+
+.smartpark-nav-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.smartpark-nav-links a {
+    color: #e1edf3;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.smartpark-nav-links a:hover,
+.smartpark-nav-links a.active {
+    color: #6ce0db;
+}
+
+@media (max-width: 768px) {
+    .smartpark-navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .smartpark-nav-links {
+        gap: 12px 18px;
+    }
+}
+
+/* =========================================
+   SmartPark Tables and Action Buttons
+   ========================================= */
+
+/* Modern Table Styling */
+.table {
+    background-color: #ffffff;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(16, 55, 77, 0.08);
+}
+
+.table thead th {
+    background-color: #eaf1f5;
+    color: var(--sp-primary-dark);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 16px;
+    border-bottom: 2px solid var(--sp-border);
+}
+
+.table tbody td {
+    padding: 16px;
+    vertical-align: middle;
+    border-bottom: 1px solid #edf1f5;
+}
+
+.table tbody tr:hover td {
+    background-color: #f4fafb;
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Action Buttons */
+.table .btn-sm {
+    padding: 7px 12px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border-radius: 7px;
+    white-space: nowrap;
+}
+
+/* Reservation Status Badges */
+.table .badge {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 20px;
+}
+
+/* Small Screen Improvements */
+@media (max-width: 768px) {
+    .table thead th,
+    .table tbody td {
+        padding: 12px 10px;
+    }
+
+    .table .btn-sm {
+        padding: 6px 9px;
+        font-size: 0.78rem;
+    }
+}
+
+/* =========================================
+   SmartPark Table Row Refinements
+   ========================================= */
+
+/* Use clean white rows instead of gray stripes */
+.table tbody tr,
+.table tbody tr:nth-of-type(odd),
+.table tbody tr:nth-of-type(even) {
+    --bs-table-bg: #ffffff;
+    --bs-table-striped-bg: #ffffff;
+    background-color: #ffffff;
+}
+
+/* Subtle teal highlight when hovering */
+.table tbody tr:hover {
+    --bs-table-bg: #f0f8f8;
+    --bs-table-hover-bg: #f0f8f8;
+}
+
+.table tbody tr:hover td {
+    background-color: #f0f8f8;
+}
+
+/* Keep row separators light and unobtrusive */
+.table tbody td {
+    border-bottom: 1px solid #e9eef2;
+}
+
+/* =========================================
+   SmartPark Form Design
+   ========================================= */
+
+/* Form Labels */
+.form-label {
+    color: var(--sp-primary-dark);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* Form Fields */
+.form-control,
+.form-select {
+    background-color: #ffffff;
+    border: 1px solid #ccd9e2;
+    border-radius: 9px;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Highlight the field currently being edited */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--sp-accent);
+    box-shadow: 0 0 0 4px rgba(23, 162, 164, 0.12);
+    outline: none;
+}
+
+/* Form Help Text */
+.form-text {
+    color: #647888;
+    font-size: 0.85rem;
+}
+
+/* Form Buttons */
+form .btn {
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 10px 18px;
+}
+
+/* Disabled Fields */
+.form-control:disabled,
+.form-select:disabled {
+    background-color: #edf2f6;
+    color: #647888;
+}
+
+/* Better Spacing on Small Screens */
+@media (max-width: 768px) {
+    .form-control,
+    .form-select {
+        padding: 11px 12px;
+    }
+}
+
+/* =========================================
+   SmartPark Card Design Refinements
+   ========================================= */
+
+/* Modern Reservation Cards */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e1e9ef;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(16, 55, 77, 0.07);
+    overflow: hidden;
+}
+
+/* Card Headers */
+.card-header {
+    background: linear-gradient(135deg, #eaf2f6, #f3f8fa);
+    color: var(--sp-primary-dark);
+    border-bottom: 1px solid #dce6ed;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 18px 24px;
+}
+
+/* Card Content */
+.card-body {
+    padding: 28px;
+}
+
+.card-body p {
+    margin-bottom: 14px;
+    line-height: 1.7;
+}
+
+/* Card Section Dividers */
+.card hr {
+    border-color: #e1e9ef;
+    opacity: 1;
+    margin: 24px 0;
+}
+
+/* Status Badges */
+.card .badge {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 9px 14px;
+    border-radius: 20px;
+}
+
+/* Card Buttons */
+.card .btn {
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 10px 18px;
+}
+
+/* Mobile Card Spacing */
+@media (max-width: 768px) {
+    .card-header {
+        padding: 15px 18px;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+}
+
+/* =========================================
+   SmartPark Parking Lot Form Styling
+   ========================================= */
+
+/* Style native inputs inside administrative cards */
+.card form input[type="text"],
+.card form input[type="number"],
+.card form input[type="search"],
+.card form input[type="email"],
+.card form select {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    min-height: 44px;
+    padding: 10px 14px;
+    background-color: #ffffff;
+    border: 1px solid #ccd9e2;
+    border-radius: 9px;
+    font-size: 0.95rem;
+    color: var(--sp-text);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Teal focus effect */
+.card form input:focus,
+.card form select:focus {
+    border-color: var(--sp-accent);
+    box-shadow: 0 0 0 4px rgba(23, 162, 164, 0.12);
+    outline: none;
+}
+
+/* Consistent label styling */
+.card form label {
+    color: var(--sp-primary-dark);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Style helper text */
+.card form small {
+    color: #647888;
+    font-size: 0.82rem;
+}
+
+/* =========================================
+   SmartPark Home Page
+   ========================================= */
+
+/* Hero banner */
+.sp-hero {
+    background: linear-gradient(135deg, #10374d, #174a67 60%, #1b5f7a);
+    color: #ffffff;
+    padding: 72px 0 80px;
+}
+
+.sp-eyebrow {
+    color: #6ce0db;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.sp-hero-title {
+    color: #ffffff;
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.sp-hero-lead {
+    color: #d5e5ee;
+    font-size: 1.1rem;
+    margin-top: 18px;
+    max-width: 540px;
+}
+
+/* Hero buttons on the dark background */
+.sp-btn-light {
+    background-color: #ffffff;
+    color: var(--sp-primary-dark);
+    border: 2px solid #ffffff;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.sp-btn-light:hover,
+.sp-btn-light:focus {
+    background-color: #6ce0db;
+    border-color: #6ce0db;
+    color: var(--sp-primary-dark);
+}
+
+.sp-btn-outline-light {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.sp-btn-outline-light:hover,
+.sp-btn-outline-light:focus {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+/* Availability preview card */
+.sp-availability-card {
+    box-shadow: 0 12px 36px rgba(4, 22, 33, 0.35);
+}
+
+.sp-live-dot {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #647888;
+}
+
+.sp-live-dot::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 6px;
+    border-radius: 50%;
+    background-color: var(--sp-accent);
+    vertical-align: middle;
+}
+
+.sp-lot-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 24px;
+    color: var(--sp-text);
+}
+
+.sp-lot-row small {
+    color: #647888;
+}
+
+/* Availability badges: open, low, full */
+.sp-availability-card .badge {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 20px;
+}
+
+.sp-badge-open {
+    background-color: #e1f5f4;
+    color: #0f7173;
+}
+
+.sp-badge-low {
+    background-color: #fff3d6;
+    color: #8a5a00;
+}
+
+.sp-badge-full {
+    background-color: #fde4e4;
+    color: #a12b2b;
+}
+
+.sp-link-arrow {
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Page sections */
+.sp-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.sp-section-alt {
+    background-color: #eaf1f5;
+}
+
+.sp-section-title {
+    font-size: 1.75rem;
+}
+
+.sp-section-lead {
+    font-size: 1.05rem;
+}
+
+/* How it works steps */
+.sp-step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e1f5f4;
+    color: #0f7173;
+    font-weight: 700;
+}
+
+/* Check-mark lists on the role cards */
+.sp-check-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.sp-check-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+}
+
+.sp-check-list li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--sp-accent);
+    font-weight: 700;
+}
+
+/* Benefit blocks */
+.sp-benefit {
+    height: 100%;
+    padding: 20px 22px;
+    background-color: #ffffff;
+    border-left: 4px solid var(--sp-accent);
+    border-radius: 10px;
+    box-shadow: 0 4px 18px rgba(16, 55, 77, 0.06);
+}
+
+.sp-benefit p {
+    color: #647888;
+    margin-bottom: 0;
+}
+
+/* Footer */
+.sp-footer {
+    background-color: var(--sp-primary-dark);
+    color: #c9dbe5;
+    font-size: 0.9rem;
+    padding: 24px 0;
+}
+
+/* =========================================
+   SmartPark Login Page
+   ========================================= */
+
+.sp-login-page {
+    padding-top: 56px;
+    padding-bottom: 56px;
+}
+
+.sp-login-card {
+    max-width: 920px;
+}
+
+/* Left welcome panel */
+.sp-login-panel {
+    background: linear-gradient(160deg, #10374d, #174a67);
+    color: #d5e5ee;
+    padding: 40px 32px;
+}
+
+.sp-login-panel h2 {
+    color: #ffffff;
+}
+
+.sp-login-points {
+    list-style: none;
+    padding-left: 0;
+    margin: 24px 0 0;
+}
+
+.sp-login-points li {
+    position: relative;
+    padding-left: 26px;
+    margin-bottom: 12px;
+}
+
+.sp-login-points li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    color: #6ce0db;
+    font-weight: 700;
+}
+
+.sp-login-card .card-body {
+    padding: 40px;
+}
+
+/* Small screens */
+@media (max-width: 768px) {
+    .sp-hero {
+        padding: 48px 0 56px;
+    }
+
+    .sp-hero-title {
+        font-size: 2rem;
+    }
+
+    .sp-section {
+        padding-top: 44px;
+        padding-bottom: 44px;
+    }
+
+    .sp-login-panel,
+    .sp-login-card .card-body {
+        padding: 28px 24px;
+    }
+}
+
+/* Login fields use the full card width */
+.sp-login-card form input[type="email"],
+.sp-login-card form input[type="password"] {
+    max-width: none;
+}
+
+/* Keep the footer at the bottom of short pages */
+.sp-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.sp-page > main {
+    flex: 1 0 auto;
+}
+
+/* =========================================
+   SmartPark Shared Layout Additions
+   ========================================= */
+
+/* Role label shown in the navigation after login */
+.smartpark-user {
+    color: #9fc3d4;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border: 1px solid rgba(159, 195, 212, 0.4);
+    border-radius: 20px;
+}
+
+/* Pushes the footer to the bottom of short pages */
+.sp-footer-spacer {
+    flex: 1 0 48px;
+}
+
+/* Lot names in the home page availability card */
+.sp-lot-name {
+    color: var(--sp-text);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.sp-lot-name:hover {
+    color: var(--sp-accent);
+}
+
+/* =========================================
+   SmartPark Estimated Cost Box (reservation forms)
+   ========================================= */
+
+.sp-cost-box {
+    height: 100%;
+    padding: 18px 22px;
+    background-color: #eaf1f5;
+    border: 1px solid #dce6ed;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.sp-cost-label {
+    color: var(--sp-primary-dark);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+.sp-cost-value {
+    color: var(--sp-primary-dark);
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin: 4px 0;
+}
+
+.sp-cost-note {
+    color: #647888;
+    font-size: 0.85rem;
+}
