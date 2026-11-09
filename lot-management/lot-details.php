@@ -1,144 +1,89 @@
+<?php
+// UC-LOT View Parking Lot Details
+// Shows one lot; Lot Managers can edit or delete it, Drivers can reserve it
+
+require_once __DIR__ . '/../includes/session.php';
+require_once __DIR__ . '/lot-data.php';
+
+// Find the lot from the ID in the URL
+$lotId = (int) ($_GET['lot_id'] ?? 0);
+$selectedLot = $parkingLots[$lotId] ?? null;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parking Lot Details | SmartPark Solutions</title>  
-    <style>
-        main section {
-            display: none;
-        }
+    <title>Parking Lot Details | SmartPark Solutions</title>
 
-        main section:target {
-            display: block;
-        }
-    </style>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Shared SmartPark CSS -->
     <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
-    
-<!-- SmartPark Administrative Navigation -->
-<header class="smartpark-header">
-    <div class="container smartpark-navbar">
+<body class="sp-page">
 
-        <a href="../home.php" class="smartpark-brand">
-            SmartPark Solutions
-        </a>
-
-        <nav class="smartpark-nav-links" aria-label="Main navigation">
-
-            <a href="../home.php">Home</a>
-
-            <a href="lot-list.php" class="active" aria-current="page">
-                Manage Lots
-            </a>
-
-            <a href="../reservation-management/reservations.php">View Reservations</a>
-
-
-            <a href="../login.php">Login</a>
-
-        </nav>
-
-    </div>
-</header>
+<?php
+$basePath = '../';
+$activePage = $isLotManager ? 'lots' : 'find';
+require __DIR__ . '/../includes/header.php';
+?>
 
     <main class="container mt-5 mb-5">
         <h1>Parking Lot Details</h1>
-        <!-- Each section is a static detail view for one sample lot. -->
-        <section id="lot-1">
-        <div class="card mb-4" style="max-width: 720px;">
-        <div class="card-body">    
-        <h2>Downtown Garage</h2>
-            <dl>
-                <dt>Location</dt><dd>Downtown Garage</dd>
-                <dt>Total Spots</dt><dd>120</dd>
-                <dt>Available spots</dt><dd>42</dd>
-                <dt>Hourly rate</dt><dd>$4.00</dd>
-            </dl>
-            <p>          
-            <a href="lot-update.php#lot-1" class="btn btn-warning me-2">
-                Edit Parking Lot
-            </a>
-            <a href="lot-delete.php?lot_id=1" class="btn btn-danger">
-                Delete Parking Lot
-            </a>
-            </p>
-            </div>
-        </div>
-        </section>
 
-        <section id="lot-2">
-            <div class="card mb-4" style="max-width: 720px;">
-            <div class="card-body">
-            <h2>Airport Lot B</h2>
-            <dl>
-                <dt>Location</dt><dd>Airport Lot B</dd>
-                <dt>Total Spots</dt><dd>300</dd>
-                <dt>Available spots</dt><dd>8</dd>
-                <dt>Hourly rate</dt><dd>$2.00</dd>
-            </dl>
-            <p>    
-            <a href="lot-update.php#lot-2" class="btn btn-warning me-2">
-                Edit Parking Lot
-            </a>
-            <a href="lot-delete.php?lot_id=2" class="btn btn-danger">
-                Delete Parking Lot
-            </a>
-            </p>
-            </div>
-        </div>
-        </section>
+        <?php if ($selectedLot === null): ?>
 
-        <section id="lot-3">
-            <div class="card mb-4" style="max-width: 720px;">
-            <div class="card-body">
-            <h2>Campus Lot 4</h2>
-            <dl>
-                <dt>Location</dt><dd>Campus Lot 4</dd>
-                <dt>Total Spots</dt><dd>65</dd>
-                <dt>Available spots</dt><dd>0</dd>
-                <dt>Hourly rate</dt><dd>$5.50</dd>
-            </dl>
-            <p>          
-            <a href="lot-update.php#lot-3" class="btn btn-warning me-2">
-                Edit Parking Lot
-            </a>
-            <a href="lot-delete.php?lot_id=3" class="btn btn-danger">
-                Delete Parking Lot
-            </a>
-            </p>
+            <div class="alert alert-danger mt-4">
+                The selected parking lot could not be found.
             </div>
-        </div>
-        </section>
 
-        <section id="lot-4">
-        <div class="card mb-4" style="max-width: 720px;">
-            <div class="card-body">
-            <h2>State Street Lot 2</h2>
-            <dl>
-                <dt>Location</dt><dd>State Street Lot 2</dd>
-                <dt>Total Spots</dt><dd>60</dd>
-                <dt>Available spots</dt><dd>33</dd>
-                <dt>Hourly rate</dt><dd>$1.50</dd>
-            </dl>
-            <p>           
-            <a href="lot-update.php#lot-4" class="btn btn-warning me-2">
-                Edit Parking Lot
-            </a>
-            <a href="lot-delete.php?lot_id=4" class="btn btn-danger">
-                Delete Parking Lot
-            </a>
-            </p>
+        <?php else: ?>
+
+            <div class="card mt-4 mb-4" style="max-width: 720px;">
+                <div class="card-body">
+                    <h2><?= htmlspecialchars($selectedLot['location']) ?></h2>
+
+                    <dl>
+                        <dt>Location</dt>
+                        <dd><?= htmlspecialchars($selectedLot['location']) ?></dd>
+
+                        <dt>Total Spots</dt>
+                        <dd><?= $selectedLot['total_spots'] ?></dd>
+
+                        <dt>Available spots</dt>
+                        <dd><?= $selectedLot['available_spots'] ?></dd>
+
+                        <dt>Hourly rate</dt>
+                        <dd>$<?= number_format($selectedLot['hourly_rate'], 2) ?></dd>
+                    </dl>
+
+                    <div class="d-flex flex-wrap gap-2">
+                        <?php if ($isLotManager): ?>
+                            <a href="lot-update.php?lot_id=<?= $selectedLot['id'] ?>" class="btn btn-warning">
+                                Edit Parking Lot
+                            </a>
+                            <a href="lot-delete.php?lot_id=<?= $selectedLot['id'] ?>" class="btn btn-danger">
+                                Delete Parking Lot
+                            </a>
+                        <?php elseif ($selectedLot['available_spots'] > 0): ?>
+                            <a href="../reservation-management/create-reservation.php?lot=<?= urlencode($selectedLot['location']) ?>" class="btn btn-success">
+                                Reserve a Spot Here
+                            </a>
+                        <?php else: ?>
+                            <span class="badge bg-secondary">This lot is full</span>
+                        <?php endif; ?>
+                    </div>
+                </div>
             </div>
-        </div>
-        </section>
+
+        <?php endif; ?>
 
         <p><a href="lot-list.php">Back to parking lots</a></p>
     </main>
+
+<?php require __DIR__ . '/../includes/footer.php'; ?>
+
 </body>
 </html>
