@@ -123,7 +123,8 @@ a:hover {
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    padding: 18px 0;
+    padding-top: 18px;
+    padding-bottom: 18px;
 }
 
 .smartpark-brand {
@@ -434,4 +435,360 @@ form .btn {
 .card form small {
     color: #647888;
     font-size: 0.82rem;
+}
+
+/* =========================================
+   SmartPark Home Page
+   ========================================= */
+
+/* Hero banner */
+.sp-hero {
+    background: linear-gradient(135deg, #10374d, #174a67 60%, #1b5f7a);
+    color: #ffffff;
+    padding: 72px 0 80px;
+}
+
+.sp-eyebrow {
+    color: #6ce0db;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.sp-hero-title {
+    color: #ffffff;
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.sp-hero-lead {
+    color: #d5e5ee;
+    font-size: 1.1rem;
+    margin-top: 18px;
+    max-width: 540px;
+}
+
+/* Hero buttons on the dark background */
+.sp-btn-light {
+    background-color: #ffffff;
+    color: var(--sp-primary-dark);
+    border: 2px solid #ffffff;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.sp-btn-light:hover,
+.sp-btn-light:focus {
+    background-color: #6ce0db;
+    border-color: #6ce0db;
+    color: var(--sp-primary-dark);
+}
+
+.sp-btn-outline-light {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.sp-btn-outline-light:hover,
+.sp-btn-outline-light:focus {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+/* Availability preview card */
+.sp-availability-card {
+    box-shadow: 0 12px 36px rgba(4, 22, 33, 0.35);
+}
+
+.sp-live-dot {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #647888;
+}
+
+.sp-live-dot::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 6px;
+    border-radius: 50%;
+    background-color: var(--sp-accent);
+    vertical-align: middle;
+}
+
+.sp-lot-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 24px;
+    color: var(--sp-text);
+}
+
+.sp-lot-row small {
+    color: #647888;
+}
+
+/* Availability badges: open, low, full */
+.sp-availability-card .badge {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 20px;
+}
+
+.sp-badge-open {
+    background-color: #e1f5f4;
+    color: #0f7173;
+}
+
+.sp-badge-low {
+    background-color: #fff3d6;
+    color: #8a5a00;
+}
+
+.sp-badge-full {
+    background-color: #fde4e4;
+    color: #a12b2b;
+}
+
+.sp-link-arrow {
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Page sections */
+.sp-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.sp-section-alt {
+    background-color: #eaf1f5;
+}
+
+.sp-section-title {
+    font-size: 1.75rem;
+}
+
+.sp-section-lead {
+    font-size: 1.05rem;
+}
+
+/* How it works steps */
+.sp-step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e1f5f4;
+    color: #0f7173;
+    font-weight: 700;
+}
+
+/* Check-mark lists on the role cards */
+.sp-check-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.sp-check-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+}
+
+.sp-check-list li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--sp-accent);
+    font-weight: 700;
+}
+
+/* Benefit blocks */
+.sp-benefit {
+    height: 100%;
+    padding: 20px 22px;
+    background-color: #ffffff;
+    border-left: 4px solid var(--sp-accent);
+    border-radius: 10px;
+    box-shadow: 0 4px 18px rgba(16, 55, 77, 0.06);
+}
+
+.sp-benefit p {
+    color: #647888;
+    margin-bottom: 0;
+}
+
+/* Footer */
+.sp-footer {
+    background-color: var(--sp-primary-dark);
+    color: #c9dbe5;
+    font-size: 0.9rem;
+    padding: 24px 0;
+}
+
+/* =========================================
+   SmartPark Login Page
+   ========================================= */
+
+.sp-login-page {
+    padding-top: 56px;
+    padding-bottom: 56px;
+}
+
+.sp-login-card {
+    max-width: 920px;
+}
+
+/* Left welcome panel */
+.sp-login-panel {
+    background: linear-gradient(160deg, #10374d, #174a67);
+    color: #d5e5ee;
+    padding: 40px 32px;
+}
+
+.sp-login-panel h2 {
+    color: #ffffff;
+}
+
+.sp-login-points {
+    list-style: none;
+    padding-left: 0;
+    margin: 24px 0 0;
+}
+
+.sp-login-points li {
+    position: relative;
+    padding-left: 26px;
+    margin-bottom: 12px;
+}
+
+.sp-login-points li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    color: #6ce0db;
+    font-weight: 700;
+}
+
+.sp-login-card .card-body {
+    padding: 40px;
+}
+
+/* Small screens */
+@media (max-width: 768px) {
+    .sp-hero {
+        padding: 48px 0 56px;
+    }
+
+    .sp-hero-title {
+        font-size: 2rem;
+    }
+
+    .sp-section {
+        padding-top: 44px;
+        padding-bottom: 44px;
+    }
+
+    .sp-login-panel,
+    .sp-login-card .card-body {
+        padding: 28px 24px;
+    }
+}
+
+/* Login fields use the full card width */
+.sp-login-card form input[type="email"],
+.sp-login-card form input[type="password"] {
+    max-width: none;
+}
+
+/* Keep the footer at the bottom of short pages */
+.sp-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.sp-page > main {
+    flex: 1 0 auto;
+}
+
+/* =========================================
+   SmartPark Shared Layout Additions
+   ========================================= */
+
+/* Role label shown in the navigation after login */
+.smartpark-user {
+    color: #9fc3d4;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border: 1px solid rgba(159, 195, 212, 0.4);
+    border-radius: 20px;
+}
+
+/* Pushes the footer to the bottom of short pages */
+.sp-footer-spacer {
+    flex: 1 0 48px;
+}
+
+/* Lot names in the home page availability card */
+.sp-lot-name {
+    color: var(--sp-text);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.sp-lot-name:hover {
+    color: var(--sp-accent);
+}
+
+/* =========================================
+   SmartPark Estimated Cost Box (reservation forms)
+   ========================================= */
+
+.sp-cost-box {
+    height: 100%;
+    padding: 18px 22px;
+    background-color: #eaf1f5;
+    border: 1px solid #dce6ed;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.sp-cost-label {
+    color: var(--sp-primary-dark);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+.sp-cost-value {
+    color: var(--sp-primary-dark);
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin: 4px 0;
+}
+
+.sp-cost-note {
+    color: #647888;
+    font-size: 0.85rem;
 }
