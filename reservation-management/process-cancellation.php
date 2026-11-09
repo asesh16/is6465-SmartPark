@@ -35,6 +35,9 @@ if (
 // Soft delete: update status instead of removing the reservation
 $_SESSION['reservations'][$reservationIndex]['status'] = 'Cancelled';
 
+// Cancelling frees the reserved spot at the lot
+sp_change_available_spots($_SESSION['reservations'][$reservationIndex]['lot'], +1);
+
 // Redirect to the cancellation confirmation page
 header('Location: cancellation-confirmation.php?id=' . urlencode($reservationId));
 exit;

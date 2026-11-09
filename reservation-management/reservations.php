@@ -14,52 +14,46 @@ require_once __DIR__ . '/reservation-data.php';
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
     <!-- Shared SmartPark CSS -->
     <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
+<body class="sp-page">
 
-<!-- SmartPark Customer Navigation -->
-<header class="smartpark-header">
-    <div class="container smartpark-navbar">
-
-        <a href="../home.php" class="smartpark-brand">
-            SmartPark Solutions
-        </a>
-
-        <nav class="smartpark-nav-links" aria-label="Main navigation">
-
-            <a href="../home.php">Home</a>
-
-            <a href="create-reservation.php">Make a Reservation</a>
-
-            <a href="reservations.php" class="active" aria-current="page">
-                View Reservations
-            </a>
-
-            <a href="../login.php">Login</a>
-
-        </nav>
-
-    </div>
-</header>
+<?php
+$basePath = '../';
+$activePage = 'reservations';
+require __DIR__ . '/../includes/header.php';
+?>
 
     <div class="container mt-5">
         
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <h1 class="mb-0">My Reservations</h1>
+<div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+    <h1 class="mb-0"><?= $isLotManager ? 'All Reservations' : 'My Reservations' ?></h1>
 
-    <a href="create-reservation.php" class="btn btn-primary">
-        + Create Reservation
-    </a>
 </div>
         <p class="text-muted">
-            View and manage your parking reservations.
+            <?= $isLotManager
+                ? 'Review upcoming reservations for SmartPark parking lots.'
+                : 'View and manage your parking reservations.' ?>
         </p>
 
-<div class="table-responsive mt-4"> 
-<div class="table-responsive">
+<?php if (empty($reservations)): ?>
+
+    <!-- UC-RES-02: no reservations available -->
+    <div class="card mt-4">
+        <div class="card-body text-center p-5">
+            <h2 class="h4">You have no parking reservations yet</h2>
+            <p class="text-muted">Create a reservation to see it here.</p>
+            <div class="d-flex justify-content-center flex-wrap gap-2">
+                <a href="create-reservation.php" class="btn btn-primary">Create New Reservation</a>
+                <a href="../home.php" class="btn btn-secondary">Return Home</a>
+            </div>
+        </div>
+    </div>
+
+<?php else: ?>
+
+<div class="table-responsive mt-4">
     <table class="table table-striped table-hover align-middle">
         <thead>
             <tr>
@@ -93,7 +87,7 @@ require_once __DIR__ . '/reservation-data.php';
                         <a href="reservation-details.php?id=<?= urlencode($reservation['id']) ?>"
                         class="btn btn-sm btn-primary">View</a>
 
-                        <?php if ($reservation['status'] === 'Confirmed'): ?>
+                        <?php if ($reservation['status'] === 'Confirmed' && !$isLotManager): ?>
                             <a href="edit-reservation.php?id=<?= urlencode($reservation['id']) ?>" class="btn btn-warning btn-sm">Edit</a>
                             <a href="cancel-reservation.php?id=<?= urlencode($reservation['id']) ?>" class="btn btn-danger btn-sm">Cancel</a>
                         <?php endif; ?>
@@ -102,9 +96,25 @@ require_once __DIR__ . '/reservation-data.php';
             <?php endforeach; ?>
         </tbody>
     </table>
-    </div>
 </div>
+
+<!-- My Reservations wireframe: actions below the table -->
+<div class="d-flex justify-content-center flex-wrap gap-3 mt-4 mb-5">
+    <?php if (!$isLotManager): ?>
+        <a href="create-reservation.php" class="btn btn-primary">
+            Create New Reservation
+        </a>
+    <?php endif; ?>
+
+    <a href="../home.php" class="btn btn-secondary">
+        Return to Home
+    </a>
+</div>
+
+<?php endif; ?>
     </div>
+
+<?php require __DIR__ . '/../includes/footer.php'; ?>
 
 </body>
 </html>

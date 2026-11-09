@@ -40,32 +40,13 @@ if (
     <!-- Shared SmartPark CSS -->
     <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
+<body class="sp-page">
 
-<!-- SmartPark Customer Navigation -->
-<header class="smartpark-header">
-    <div class="container smartpark-navbar">
-
-        <a href="../home.php" class="smartpark-brand">
-            SmartPark Solutions
-        </a>
-
-        <nav class="smartpark-nav-links" aria-label="Main navigation">
-
-            <a href="../home.php">Home</a>
-
-            <a href="create-reservation.php">Make a Reservation</a>
-
-            <a href="reservations.php" class="active" aria-current="page">
-                View Reservations
-            </a>
-
-            <a href="../login.php">Login</a>
-
-        </nav>
-
-    </div>
-</header>
+<?php
+$basePath = '../';
+$activePage = 'reservations';
+require __DIR__ . '/../includes/header.php';
+?>
 
 <div class="container mt-5">
 
@@ -146,6 +127,8 @@ if (
     </div>
 
 </div>
+
+<?php require __DIR__ . '/../includes/footer.php'; ?>
 
 </body>
 </html>

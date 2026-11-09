@@ -31,38 +31,29 @@ foreach ($reservations as $reservation) {
     <!-- Shared SmartPark CSS -->
     <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
+<body class="sp-page">
 
-<!-- SmartPark Customer Navigation -->
-<header class="smartpark-header">
-    <div class="container smartpark-navbar">
-
-        <a href="../home.php" class="smartpark-brand">
-            SmartPark Solutions
-        </a>
-
-        <nav class="smartpark-nav-links" aria-label="Main navigation">
-
-            <a href="../home.php">Home</a>
-
-            <a href="create-reservation.php">Make a Reservation</a>
-
-            <a href="reservations.php" class="active" aria-current="page">
-                View Reservations
-            </a>
-
-            <a href="../login.php">Login</a>
-
-        </nav>
-
-    </div>
-</header>
+<?php
+$basePath = '../';
+$activePage = 'reservations';
+require __DIR__ . '/../includes/header.php';
+?>
 
 <div class="container mt-5">
     <h1>Reservation Details</h1>
     <p class="text-muted">
         Review your parking reservation information.
     </p>
+
+    <?php if ($selectedReservation !== null && isset($_GET['updated'])): ?>
+        <div class="alert alert-success">
+            Your reservation was updated. The reservation ID and Confirmed status were kept.
+        </div>
+    <?php elseif ($selectedReservation !== null && isset($_GET['discarded'])): ?>
+        <div class="alert alert-info">
+            Your changes were discarded. The original reservation was kept.
+        </div>
+    <?php endif; ?>
 
     <?php if ($selectedReservation === null): ?>
 
@@ -82,13 +73,13 @@ foreach ($reservations as $reservation) {
                     <?= htmlspecialchars($selectedReservation['lot']) ?></p>
 
                 <p><strong>Date:</strong>       
-                    <?= htmlspecialchars(date('F j, Y', strtotime($selectedReservation['date']))) ?>
+                    <?= htmlspecialchars(date('F j, Y', strtotime($selectedReservation['date']))) ?></p>
 
                 <p><strong>Start Time:</strong>
-                    <?= htmlspecialchars(date('g:i A', strtotime($selectedReservation['start_time']))) ?>
+                    <?= htmlspecialchars(date('g:i A', strtotime($selectedReservation['start_time']))) ?></p>
 
                 <p><strong>End Time:</strong>
-                    <?= htmlspecialchars(date('g:i A', strtotime($selectedReservation['end_time']))) ?>
+                    <?= htmlspecialchars(date('g:i A', strtotime($selectedReservation['end_time']))) ?></p>
 
                 <p><strong>License Plate:</strong>
                     <?= htmlspecialchars($selectedReservation['vehicle_plate']) ?></p>
@@ -111,10 +102,23 @@ foreach ($reservations as $reservation) {
 
     <?php endif; ?>
 
-    <a href="reservations.php" class="btn btn-secondary mt-4">
-        Back to My Reservations
-    </a>
+    <div class="d-flex flex-wrap gap-2 mt-4">
+        <?php if ($selectedReservation !== null && $selectedReservation['status'] === 'Confirmed' && !$isLotManager): ?>
+            <a href="edit-reservation.php?id=<?= urlencode($selectedReservation['id']) ?>" class="btn btn-primary">
+                Edit Reservation
+            </a>
+            <a href="cancel-reservation.php?id=<?= urlencode($selectedReservation['id']) ?>" class="btn btn-danger">
+                Cancel Reservation
+            </a>
+        <?php endif; ?>
+
+        <a href="reservations.php" class="btn btn-secondary">
+            Back to <?= $isLotManager ? 'All' : 'My' ?> Reservations
+        </a>
+    </div>
 </div>
+
+<?php require __DIR__ . '/../includes/footer.php'; ?>
 
 </body>
 </html>
