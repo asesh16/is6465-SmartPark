@@ -2,7 +2,7 @@
 // SmartPark shared navigation header
 // Before including, set:
 //   $basePath   - '' for root pages, '../' for pages inside a folder
-//   $activePage - home, find, create, reservations, lots, or login
+//   $activePage - home, find, reservations, lots, or login
 
 require_once __DIR__ . '/session.php';
 
@@ -39,14 +39,14 @@ function sp_nav_link($href, $label, $key, $activePage)
             <?= sp_nav_link($basePath . 'home.php', 'Home', 'home', $activePage) ?>
 
             <?php if ($isLotManager): ?>
-                <!-- Lot Manager navigation -->
+                <!-- Lot Manager navigation (lot management wireframes) -->
                 <?= sp_nav_link($basePath . 'lot-management/lot-list.php', 'Manage Lots', 'lots', $activePage) ?>
-                <?= sp_nav_link($basePath . 'reservation-management/reservations.php', 'View Reservations', 'reservations', $activePage) ?>
+                <?= sp_nav_link($basePath . 'lot-management/lot-list.php?mode=find', 'Find Parking', 'find', $activePage) ?>
+                <?= sp_nav_link($basePath . 'reservation-management/reservations.php', 'All Reservations', 'reservations', $activePage) ?>
             <?php else: ?>
-                <!-- Driver and visitor navigation -->
+                <!-- Driver and visitor navigation (reservation wireframes) -->
+                <?= sp_nav_link($basePath . 'reservation-management/reservations.php', 'My Reservations', 'reservations', $activePage) ?>
                 <?= sp_nav_link($basePath . 'lot-management/lot-list.php', 'Find Parking', 'find', $activePage) ?>
-                <?= sp_nav_link($basePath . 'reservation-management/create-reservation.php', 'Make a Reservation', 'create', $activePage) ?>
-                <?= sp_nav_link($basePath . 'reservation-management/reservations.php', 'View Reservations', 'reservations', $activePage) ?>
             <?php endif; ?>
 
             <?php if ($currentUser !== null): ?>
